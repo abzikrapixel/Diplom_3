@@ -3,6 +3,7 @@ from pages.base_page import BasePage
 from helpers.urls import LOGIN_PAGE
 from locators.main_page_locators import ORDER_BUTTON
 
+
 class LoginPage(BasePage):
 
     def set_email(self, email):

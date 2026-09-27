@@ -1,8 +1,8 @@
-import random
+import uuid
 
 PASSWORD = "Gfhjkm0001"
 NAME = "abzal"
 
 def generate_email():
-    number = random.randint(100, 999)
-    return f"abzal_rakhymbayev_{number}@yandex.ru"
+    unique_id = uuid.uuid4().hex[:12]
+    return f"abzal_rakhymbayev_{unique_id}@yandex.ru"

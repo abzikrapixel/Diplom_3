@@ -2,7 +2,6 @@ from selenium.webdriver.common.by import By
 
 CONSTRUCTOR_BUTTON = (By.XPATH, "//p[text()='Конструктор']")
 ORDERS_LIST_BUTTON = (By.XPATH, "//p[text()='Лента Заказов']")
-ACCOUNT_LINK = (By.XPATH, "//p[text()='Личный Кабинет']")
 MAIN_TITLE = (By.XPATH, "//h1[text()='Соберите бургер']")
 INGREDIENT = (By.XPATH, "//a[contains(@href, '/ingredient/')]")
 INGREDIENT_COUNTER = (By.XPATH, ".//p[contains(@class, 'counter_counter__num')]")

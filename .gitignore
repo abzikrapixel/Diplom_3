@@ -458,5 +458,4 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
-allure-results/
 allure-report/
