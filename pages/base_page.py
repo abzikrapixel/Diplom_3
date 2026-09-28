@@ -53,10 +53,6 @@ class BasePage:
         self.wait_loading_gone()
         self.wait_clickable(locator).click()
 
-    @allure.step("Ввод текста")
-    def send_keys(self, locator, text):
-        self.set_value(locator, text)
-
     @allure.step("Заполнение поля")
     def set_value(self, locator, text):
         self.close_modal()
@@ -67,10 +63,6 @@ class BasePage:
     @allure.step("Получение текста элемента")
     def get_text(self, locator):
         return self.wait_visible(locator).text
-
-    @allure.step("Получение текущего URL")
-    def get_url(self):
-        return self.driver.current_url
 
     @allure.step("Открытие страницы")
     def open(self, url):

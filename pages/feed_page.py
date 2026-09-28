@@ -12,15 +12,15 @@ from pages.base_page import BasePage
 
 
 class FeedPage(BasePage):
-    
+
+    @allure.step("Проверка отображения списка заказов")
     def orders_list_is_visible(self):
-        return bool(self.find_element(ORDERS_LIST))    
+        return bool(self.find_element(ORDERS_LIST))
 
     @allure.step("Открытие ленты заказов")
     def open_orders_list(self):
         self.open(FEED_PAGE)
         self.wait_visible(ORDERS_LIST)
-
 
     @allure.step("Получение счётчика «Выполнено за всё время»")
     def get_all_time_orders(self):

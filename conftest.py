@@ -5,6 +5,9 @@ from selenium.webdriver.firefox.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
 from helpers.api import delete_user
+from pages.feed_page import FeedPage
+from pages.login_page import LoginPage
+from pages.main_page import MainPage
 
 
 @pytest.fixture(params=["chrome", "firefox"])
@@ -35,3 +38,18 @@ def driver_with_user(driver):
 
     if token:
         delete_user(token)
+
+
+@pytest.fixture
+def main_page(driver):
+    return MainPage(driver)
+
+
+@pytest.fixture
+def feed_page(driver):
+    return FeedPage(driver)
+
+
+@pytest.fixture
+def login_page(driver):
+    return LoginPage(driver)

@@ -2,9 +2,6 @@ import allure
 
 from helpers.api import register_user
 from helpers.data import PASSWORD
-from pages.feed_page import FeedPage
-from pages.login_page import LoginPage
-from pages.main_page import MainPage
 
 
 @allure.epic("UI Stellar Burgers")
@@ -12,10 +9,13 @@ from pages.main_page import MainPage
 class TestFeed:
 
     @allure.title("Проверка: после заказа растёт счётчик за всё время")
-    def test_all_time_orders(self, driver_with_user):
-        feed_page = FeedPage(driver_with_user)
-        main_page = MainPage(driver_with_user)
-        login_page = LoginPage(driver_with_user)
+    def test_all_time_orders(
+        self,
+        driver_with_user,
+        feed_page,
+        main_page,
+        login_page,
+    ):
 
         with allure.step("Смотрим счётчик заказа за всё время"):
             feed_page.open_orders_list()
@@ -33,10 +33,13 @@ class TestFeed:
             assert feed_page.get_all_time_orders() > before
 
     @allure.title("Проверка: после заказа растёт счётчик за сегодня")
-    def test_today_orders(self, driver_with_user):
-        feed_page = FeedPage(driver_with_user)
-        main_page = MainPage(driver_with_user)
-        login_page = LoginPage(driver_with_user)
+    def test_today_orders(
+        self,
+        driver_with_user,
+        feed_page,
+        main_page,
+        login_page,
+    ):
 
         with allure.step("Смотрим счётчик за сегодня"):
             feed_page.open_orders_list()
@@ -54,10 +57,13 @@ class TestFeed:
             assert feed_page.get_today_orders() > before
 
     @allure.title("Проверка: номер заказа появляется в разделе «В работе»")
-    def test_order_in_progress(self, driver_with_user):
-        feed_page = FeedPage(driver_with_user)
-        main_page = MainPage(driver_with_user)
-        login_page = LoginPage(driver_with_user)
+    def test_order_in_progress(
+        self,
+        driver_with_user,
+        feed_page,
+        main_page,
+        login_page,
+    ):
 
         with allure.step("Входим и делаем заказ"):
             email, token = register_user()

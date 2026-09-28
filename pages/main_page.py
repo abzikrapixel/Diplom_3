@@ -8,7 +8,6 @@ from locators.main_page_locators import (
     INGREDIENT,
     INGREDIENT_COUNTER,
     CONSTRUCTOR_BASKET,
-    ENTER_ACCOUNT_BUTTON,
     ORDER_BUTTON,
     ORDER_NUMBER,
     INGRIDIENTS_DETAILS,
@@ -23,7 +22,6 @@ class MainPage(BasePage):
     @allure.step("Проверка отображения главной страницы")
     def main_title_is_visible(self):
         return bool(self.find_element(MAIN_TITLE))
-
 
     @allure.step("Нажатие «Конструктор»")
     def click_constructor(self):
@@ -81,14 +79,11 @@ class MainPage(BasePage):
             target,
         )
 
-    @allure.step("Нажатие «Войти в аккаунт»")
-    def click_enter_account(self):
-        self.click(ENTER_ACCOUNT_BUTTON)
-
     @allure.step("Нажатие «Оформить заказ»")
     def click_order(self):
         self.click(ORDER_BUTTON)
 
+    @allure.step("Получение номера заказа")
     def get_order_number(self):
         self.wait_visible(ORDER_NUMBER, 30)
 
@@ -99,8 +94,6 @@ class MainPage(BasePage):
         )
 
         return self.get_text(ORDER_NUMBER)
-
-
 
     @allure.step("Создание заказа")
     def make_order(self):
