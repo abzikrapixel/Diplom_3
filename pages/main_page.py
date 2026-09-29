@@ -79,10 +79,6 @@ class MainPage(BasePage):
             target,
         )
 
-    @allure.step("Нажатие «Оформить заказ»")
-    def click_order(self):
-        self.click(ORDER_BUTTON)
-
     @allure.step("Получение номера заказа")
     def get_order_number(self):
         self.wait_visible(ORDER_NUMBER, 30)
