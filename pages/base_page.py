@@ -17,6 +17,12 @@ class BasePage:
             expected_conditions.visibility_of_element_located(locator)
         )
 
+    @allure.step("Ожидание невидимости элемента")
+    def wait_invisible(self, locator, timeout=20):
+        return Wait(self.driver, timeout).until(
+            expected_conditions.invisibility_of_element_located(locator)
+        )
+
     @allure.step("Ожидание кликабельности элемента")
     def wait_clickable(self, locator, timeout=20):
         return Wait(self.driver, timeout).until(
@@ -50,6 +56,11 @@ class BasePage:
     @allure.step("Клик по элементу")
     def click(self, locator):
         self.close_modal()
+        self.wait_loading_gone()
+        self.wait_clickable(locator).click()
+
+    @allure.step("Клик без предварительного закрытия модального окна")
+    def click_without_closing_modal(self, locator):
         self.wait_loading_gone()
         self.wait_clickable(locator).click()
 

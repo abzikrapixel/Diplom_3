@@ -41,7 +41,11 @@ class MainPage(BasePage):
 
     @allure.step("Закрытие деталей ингредиента")
     def close_ingredient_details(self):
-        self.click(INGRIDIENTS_WINDOW_CLOSE)
+        self.click_without_closing_modal(INGRIDIENTS_WINDOW_CLOSE)
+
+    @allure.step("Проверка, что детали ингредиента скрыты")
+    def ingredient_details_is_hidden(self):
+        return self.wait_invisible(INGRIDIENTS_DETAILS)
 
     @allure.step("Получение счётчика ингредиента")
     def get_ingredient_counter(self):

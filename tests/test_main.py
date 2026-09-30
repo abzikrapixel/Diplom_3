@@ -46,11 +46,14 @@ class TestMain:
             main_page.open_constructor()
             main_page.click_ingredient()
 
+        with allure.step("Проверить, что окно деталей открыто"):
+            assert main_page.ingredient_details_is_visible()
+
         with allure.step("Закрыть окно крестиком"):
             main_page.close_ingredient_details()
 
-        with allure.step("Проверить, что снова видна главная"):
-            assert main_page.main_title_is_visible()
+        with allure.step("Проверить, что окно деталей исчезло"):
+            assert main_page.ingredient_details_is_hidden()
 
     @allure.title("При добавлении ингредиента в заказ счётчик увеличивается")
     def test_ingredient_orders(self, main_page):
